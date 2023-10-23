@@ -1,7 +1,6 @@
 {% set name = "sqlalchemy-drill" %}
 {% set version = "1.1.4" %}
 
-
 package:
   name: {{ name|lower }}
   version: {{ version }}
