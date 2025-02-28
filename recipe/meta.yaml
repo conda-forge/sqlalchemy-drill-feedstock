@@ -1,5 +1,5 @@
 {% set name = "sqlalchemy-drill" %}
-{% set version = "1.1.7" %}
+{% set version = "1.1.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sqlalchemy_drill-{{ version }}.tar.gz
-  sha256: 17760cbb49db233561d0f615477ea20b753348f12a03dc8cc1f34ef12a0e79ac
+  sha256: 760d50da753f0be012afb54c6c9d75f06d3ef108d401acef03d987db5ef42d96
 
 build:
   number: 0
