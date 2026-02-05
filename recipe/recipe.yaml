@@ -34,12 +34,7 @@ tests:
         - sqlalchemy_drill
         - sqlalchemy_drill.drilldbapi
       python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - pip
-        - python ${{ python_min }}.*
-    script:
-      - pip check
+      pip_check: true
 
 about:
   summary: Apache Drill for SQLAlchemy
