@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  name: sqlalchemy-drill
+  version: 1.1.10
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/sqlalchemy_drill-${{ version }}.tar.gz
+  sha256: a6bdf3e9999abbb38f5a1502e5539e52ea6556e801cf5db26c92c300d02d2f3a
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - ijson
+    - requests
+    - sqlalchemy
+
+tests:
+  - python:
+      imports:
+        - sqlalchemy_drill
+        - sqlalchemy_drill.drilldbapi
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+
+about:
+  summary: Apache Drill for SQLAlchemy
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/JohnOmernik/sqlalchemy-drill
+  repository: https://github.com/JohnOmernik/sqlalchemy-drill
+
+extra:
+  recipe-maintainers:
+    - xylar
